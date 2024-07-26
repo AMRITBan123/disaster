@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State Information and Emergency SOS</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="https://www.gstatic.com/dialogflow-console/embedded/api.min.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<h1>Choose Your State and Location</h1>
+
+<form id="locationForm">
+    <label for="state">Choose a state:</label>
+    <input list="states" id="state" name="state" autocomplete="off">
+    
+    <label for="location">Exact Location:</label>
+    <input type="text" id="location" name="location" placeholder="Enter your exact location">
+    
+    <button type="button" id="goButton">Go</button>
+    <button type="button" id="sosButton">Emergency SOS</button>
+</form>
+
+<datalist id="states">
+    <option value="Andhra Pradesh">
+    <option value="Arunachal Pradesh">
+    <option value="Assam">
+    <option value="Bihar">
+    <option value="Chhattisgarh">
+    <option value="Goa">
+    <option value="Gujarat">
+    <option value="Haryana">
+    <option value="Himachal Pradesh">
+    <option value="Jharkhand">
+    <option value="Karnataka">
+    <option value="Kerala">
+    <option value="Madhya Pradesh">
+    <option value="Maharashtra">
+    <option value="Manipur">
+    <option value="Meghalaya">
+    <option value="Mizoram">
+    <option value="Nagaland">
+    <option value="Odisha">
+    <option value="Punjab">
+    <option value="Rajasthan">
+    <option value="Sikkim">
+    <option value="Tamil Nadu">
+    <option value="Telangana">
+    <option value="Tripura">
+    <option value="Uttar Pradesh">
+    <option value="Uttarakhand">
+    <option value="West Bengal">
+    <option value="Andaman and Nicobar Islands">
+    <option value="Chandigarh">
+    <option value="Dadra and Nagar Haveli and Daman and Diu">
+    <option value="Lakshadweep">
+    <option value="Delhi">
+    <option value="Puducherry">
+</datalist>
+
+<!-- Modal for Emergency SOS -->
+<div id="sosModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Emergency SOS</h2>
+        <p>Choose an emergency service to call:</p>
+        <button id="callPolice">Call Police</button>
+        <button id="callFire">Call Fire Brigade</button>
+        <button id="callAmbulance">Call Ambulance</button>
+    </div>
+</div>
+
+<!-- Chatbot Container -->
+<div id="chatbotContainer">
+    <df-messenger
+        intent="WELCOME"
+        chat-title="Chatbot"
+        agent-id="YOUR_AGENT_ID"
+        language-code="en"
+    ></df-messenger>
+</div>
+
+<!-- Button to Toggle Chatbot -->
+<button id="toggleChatbot">Chat with Us</button>
+
+</body>
+</html>
